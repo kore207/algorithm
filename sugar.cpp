@@ -12,7 +12,7 @@ int ok = 0;
 
 int main(void)
 {
-	
+	//git 변경사항 테스트
 	int input;		
 	int result;
 	cin >> input;
