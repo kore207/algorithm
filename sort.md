@@ -94,3 +94,65 @@ int main(void)
 }
 ~~~
 
+
+
+### 병합 정렬 (feat.반으로 나눠서 정렬)
+
+~~~c
+#include <stdio.h>
+
+int number = 8 ;
+int sorted[8] ; //정렬 배열은 반드시 전역 변수로 선언
+
+void merge(int a[], int m, int middle, int n){
+    int i = m ;
+    int k = middle + 1 ;
+    int k = m ;
+    //작운 순서대로 배열에 삽입
+    while(i <= middle && j <= n){
+        if(a[i] <= a[j]){
+            sorted[k] = a[i] ;
+            i++ ;            
+        }else {
+            sorted[k] = a[j] ;
+            j++;
+        }
+        k++; // 비교해서 기준에 맞는 값들을 차례대로 삽입        
+    }
+    if(i > middle) {
+        for(int t = j; t<= middle; t++){
+            sorted[k] = a[t];
+            k++ ;
+        }
+    }
+    //정렬된 배열을 삽입
+    for(int t = m ; t <= n ; t++){
+        a[t] = sorted[t] ;
+    }
+}
+
+void mergeSort(int a[], int m, int n){
+    //크기가 1보다 큰 경우
+    if(m < n){
+        int middle = (m + n) / 2;
+        mergeSort(a, m , middle);
+        mergeSort(a, middle + 1 , n);
+        merge(a, m , middle, n);
+    }
+}
+~~~
+
+
+
+### 힙 정렬
+
+- 힙트리 구조를 이용한다
+
+- 이진 트리 -> 노드를 2개씩 이어 붙이는 구조
+
+    * 최상단 : 루트 /최하단: 리프
+    * 완전 이진 트리: 데이터가 왼쪽 오른쪽 순서대로 차곡차곡 들어감
+    * 최대 힙 구조 -> 부모가 항상 큼 (힙 생성 알고리즘을 통해 만들어줌)
+
+    
+
