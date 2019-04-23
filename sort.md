@@ -1,5 +1,11 @@
 ### 정렬(Sort) 알고리즘
 
+### Selection Sort    O(n^2)
+
+* 가장 큰값을 마지막 자리로 옮기는 것을 반복
+
+
+
 #### 버블 정렬 O(n^2)
 
 ~~~ c
@@ -47,7 +53,7 @@ int main(void)
   for(i = 0; i<9; i ++)
   {
     j = i;
-    while(array[j] > array[j+1])
+    while(array[j] > array[j+1])  //비교는 앞에서보다 뒤에서 하는게 배열 인덱스 값을 건드리지 않을수 있어 좋다,
     {
       tmp = array[j];
     	array[j] = array[j+1];
