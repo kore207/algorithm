@@ -177,3 +177,17 @@ void mergeSort(int a[], int m, int n){
 
     
 
+### 배열 N칸 씩 이동
+```c
+ for(int i=0 ; i<ang; i++)
+    {
+        float keyx = TrXY[0].X;
+        float keyy = TrXY[0].Y;
+        for(int j=0 ; j< MAX_STEP-1; j++)
+        {
+            TrXY[j].X = TrXY[j+1].X;
+            TrXY[j].Y = TrXY[j+1].Y;
+        }
+        TrXY[MAX_STEP-1].X = keyx ;
+        TrXY[MAX_STEP-1].Y = keyy ;
+    }
