@@ -1,5 +1,11 @@
 ### 정렬(Sort) 알고리즘
 
+### Selection Sort    O(n^2)
+
+* 가장 큰값을 마지막 자리로 옮기는 것을 반복
+
+
+
 #### 버블 정렬 O(n^2)
 
 ~~~ c
@@ -18,7 +24,22 @@ int main(void)
   }
   return 0;
 }
+
+  for(i=n-1; i>0; i--){
+    // 0 ~ (i-1)까지 반복
+    for(j=0; j<i; j++){
+      // j번째와 j+1번째의 요소가 크기 순이 아니면 교환
+      if(list[j]<list[j+1]){
+        temp = list[j];
+        list[j] = list[j+1];
+        list[j+1] = temp;
+      }
+    }
+  }
+
+
 ~~~
+
 
 
 
@@ -32,7 +53,7 @@ int main(void)
   for(i = 0; i<9; i ++)
   {
     j = i;
-    while(array[j] > array[j+1])
+    while(array[j] > array[j+1])  //비교는 앞에서보다 뒤에서 하는게 배열 인덱스 값을 건드리지 않을수 있어 좋다,
     {
       tmp = array[j];
     	array[j] = array[j+1];
@@ -156,3 +177,17 @@ void mergeSort(int a[], int m, int n){
 
     
 
+### 배열 N칸 씩 이동
+```c
+ for(int i=0 ; i<ang; i++)
+    {
+        float keyx = TrXY[0].X;
+        float keyy = TrXY[0].Y;
+        for(int j=0 ; j< MAX_STEP-1; j++)
+        {
+            TrXY[j].X = TrXY[j+1].X;
+            TrXY[j].Y = TrXY[j+1].Y;
+        }
+        TrXY[MAX_STEP-1].X = keyx ;
+        TrXY[MAX_STEP-1].Y = keyy ;
+    }
