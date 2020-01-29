@@ -21,9 +21,18 @@
 4. 부분 리스트들이 더 이상 분할이 불가능 할 때까지 반복한다. (리스트의 크기나 0 or 1이 될때까지)
    * ![QuickSort](./QuicSortImg.png)
 
+* 퀵 정렬은 다음의 단계들로 이루어진다.
+  * 분할(Divide): 입력 배열을 피벗을 기준으로 비균등하게 2개의 부분ㅇ 배열로 분할한다.
+  * 정복(Conquer): 부분 배열을 정렬한다. 부분 배열의 크기가 충분히 작지 않으면 순환 호출을 이용하여 다시 분할 정복 방법을 적용한다.
+  * 결합(Combine):정렬된 부분 배열들을 하나의 배열에 합병한다.
+
+
+
 #### 종류 
 
 * 피봇 맨 오른쪽 
+
+* ![RightPivot](./QuicSortImgRpivot.png)
 
 * ~~~
     void QuickSort(int a[], int start, int end)
