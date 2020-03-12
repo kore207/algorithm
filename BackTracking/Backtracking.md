@@ -131,3 +131,66 @@ int main(void)
 }
 ```
 
+
+
+여기까지는 기본적인 backtracking 에 관련한 문제였고 대표적인 N-Queen 문제를 살펴보자
+
+#### 문제 
+
+크기가 N * N 인 체스판 위에 퀸 N 개를 서로 공격할 수 없게 놓는 문제이다. N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 작성하시오.
+
+* 백트래킹은 크게 4가지 절차로 구성되어 있다.
+
+  **DFS 수행 - 유망한 노드 검토 - 서브 트리 이동 - 백트래킹 수행**
+
+1. DFS 수행 - 먼저 평소와 같이 깊이우선탐색인 DFS 를 수행하여 노드를 찾는다.
+2. 유망한 노드 검토 - 방문한 노드를 포함해서 유망한 노드이면 서브트리로 이동하고 그렇지 않으면 백트래킹을 수행한다.
+3. 방문한 노드의 하위 노드로 이동하여 다시 재귀를 통해 DFS 를 수행한다.
+4. 백트래킹 수행 - 방문한 노드를 가지치기를 하고 상위 노드로 백트래킹 한 후 DFS 를 다시 수행한다.
+
+```c
+#include <iostream>
+
+using namespace std;
+
+int N;
+int col[15];
+int result = 0;
+
+bool promising(int i)
+{
+    for(int j=0;j<i;j++)
+    {
+        // 새로운 퀸과 기존의 퀸이 같은 행에 있거나 대각선에 있을 경우
+        if(col[j] == col[i] || abs(col[i]-col[j]) == (i-j))
+            return false;
+    }
+    return true;
+}
+void N_Queen(int i)
+{
+    if(i == N)
+        result += 1;
+    else
+    {
+        for(int j=0;j<N;j++)
+        {
+            col[i] = j;
+            if(promising(i))
+                N_Queen(i+1);
+        }
+    }
+}
+
+int main()
+{
+    cin>>N;
+
+    N_Queen(0);
+
+    cout<<result<<endl;
+
+    return 0;
+}
+```
+
