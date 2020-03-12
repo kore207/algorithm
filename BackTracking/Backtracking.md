@@ -169,13 +169,13 @@ bool promising(int i)
 }
 void N_Queen(int i)
 {
-    if(i == N)
+    if(i == N) //끝까지 온경우는 모든 조건이 성립하는 경우 이므로 +1을 한다.
         result += 1;
     else
     {
         for(int j=0;j<N;j++)
         {
-            col[i] = j;
+            col[i] = j; 
             if(promising(i))
                 N_Queen(i+1);
         }
@@ -192,5 +192,7 @@ int main()
 
     return 0;
 }
+
+
 ```
 
