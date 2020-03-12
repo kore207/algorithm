@@ -201,12 +201,12 @@ void merge(int Array[], int left, int right, int mid)
 	} //devide 
 
 	//남아있는 배열 붙여넣기 
-	if(i>mid) 
+	if(i>mid) //rifht가 더 큰 경우
 	{
 		for(int l=j ; l<=right ; l++)
 			SortArray[k++] = Array[l];
 	}
-	else
+	else //left가 더 컸던 경우
 	{
 		for(int l=i ; l<=mid ; l++)
 			SortArray[k++] = Array[l] ;		
